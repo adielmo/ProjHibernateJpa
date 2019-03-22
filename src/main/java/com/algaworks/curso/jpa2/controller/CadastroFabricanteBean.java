@@ -9,13 +9,15 @@ import javax.inject.Named;
 
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.service.CadastroFabricanteService;
-import com.algaworks.curso.jpa2.service.NegocioExection;
+import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
 
 @Named
 @ViewScoped
 public class CadastroFabricanteBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
@@ -28,7 +30,7 @@ public class CadastroFabricanteBean implements Serializable {
 			FacesUtil.addSuccessMessage("Fabricante salvo com sucesso!");
 			
 			this.limpar();
-		} catch (NegocioExection e) {
+		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}

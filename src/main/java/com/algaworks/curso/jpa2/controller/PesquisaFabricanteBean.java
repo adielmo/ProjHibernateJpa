@@ -9,9 +9,9 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.algaworks.curso.jpa2.dao.FabricanteDao;
+import com.algaworks.curso.jpa2.dao.FabricanteDAO;
 import com.algaworks.curso.jpa2.modelo.Fabricante;
-import com.algaworks.curso.jpa2.service.NegocioExection;
+import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 
 @Named
@@ -21,7 +21,7 @@ public class PesquisaFabricanteBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	FabricanteDao fabricanteDAO;
+	FabricanteDAO fabricanteDAO;
 	
 	private List<Fabricante> fabricantes = new ArrayList<>();
 	
@@ -32,11 +32,11 @@ public class PesquisaFabricanteBean implements Serializable {
 	}
 	
 	public void excluir() {
-	try {
+		try {
 			fabricanteDAO.excluir(fabricanteSelecionado);
 			this.fabricantes.remove(fabricanteSelecionado);
 			FacesUtil.addSuccessMessage("Fabricante " + fabricanteSelecionado.getNome() + " excluído com sucesso.");
-		} catch (NegocioExection e) {
+		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
 	}
@@ -50,6 +50,6 @@ public class PesquisaFabricanteBean implements Serializable {
 	
 	@PostConstruct
 	public void inicializar() {
-		fabricantes = fabricanteDAO.buscarTodas();
+		fabricantes = fabricanteDAO.buscarTodos();
 	}
 }

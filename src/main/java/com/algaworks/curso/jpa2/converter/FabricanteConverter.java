@@ -5,17 +5,17 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import com.algaworks.curso.jpa2.dao.FabricanteDao;
+import com.algaworks.curso.jpa2.dao.FabricanteDAO;
 import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.util.cdi.CDIServiceLocator;
 
 @FacesConverter(forClass=Fabricante.class)
 public class FabricanteConverter implements Converter{
 
-	private FabricanteDao fabricanteDao;
+	private FabricanteDAO fabricanteDao;
 	
 	public FabricanteConverter() {
-		this.fabricanteDao = CDIServiceLocator.getBean(FabricanteDao.class);
+		this.fabricanteDao = CDIServiceLocator.getBean(FabricanteDAO.class);
 	}
 	
 	@Override
