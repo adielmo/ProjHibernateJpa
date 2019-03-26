@@ -27,7 +27,7 @@ public class Carro implements Serializable{
 	private String chassi;
 	
 	private String cor;
-	
+	//fgddfgdfgf
 	private BigDecimal valorDiaria;
 	
 	@ManyToOne
