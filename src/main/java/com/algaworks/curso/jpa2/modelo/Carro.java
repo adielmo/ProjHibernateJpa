@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Carro implements Serializable{
@@ -38,7 +39,10 @@ public class Carro implements Serializable{
 	@JoinTable(name="carro_acessorio", 
 	   joinColumns=@JoinColumn(name="codigo_carro"),
 	   inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
-	List<Acessorio> acessorios;
+	private List<Acessorio> acessorios;
+	
+	@OneToMany(mappedBy="carro")
+	private List<Aluguel> alugueis;
 
 	public Long getCodigo() {
 		return codigo;
