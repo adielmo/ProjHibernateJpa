@@ -19,6 +19,7 @@ public class ModeloCarro {
 	@ManyToOne
 	@JoinColumn(name="codigo_fabricante")
 	private Fabricante fabricante;
+	//MuitosPUm
 
 	public Long getCodigo() {
 		return codigo;
