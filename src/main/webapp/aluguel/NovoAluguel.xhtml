@@ -29,6 +29,12 @@
 						itemLabel="#{carro.modelo.descricao}: #{carro.placa}" itemValue="#{carro}"/>
 	    		</p:selectOneMenu>
 	    		
+	    		<p:outputLabel value="Data da entrega" for="dataEntrega"/>
+	    		<p:calendar id="dataEntrega" size="20" value="#{novoAluguelBean.aluguel.dataEntrega}" pattern="dd/MM/yyyy HH:mm" stepMinute="10"/>
+	    		
+	    		<p:outputLabel value="Data da devolução" for="dataDevolucao"/>
+	    		<p:calendar id="dataDevolucao" size="20" value="#{novoAluguelBean.aluguel.dataDevolucao}" pattern="dd/MM/yyyy HH:mm" stepMinute="10"/>
+	    		
 	    		<p:outputLabel value="Valor total" for="valorTotal"/>
 	    		<p:inputText id="valorTotal" size="20" maxlength="80" value="#{novoAluguelBean.aluguel.valorTotal}"/>
 	    	</p:panelGrid>
