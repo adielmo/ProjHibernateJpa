@@ -33,15 +33,15 @@
 				<h:form style="display: inline-block">
 					<p:menubar styleClass="menu-sistema">
 						<p:submenu label="Cadastros">
-							<p:menuitem value="Fabricante" outcome="/fabricante/PesquisaFabricantes.xhtml"/>
+							<p:menuitem value="Fabricante" outcome="/fabricante/CadastroFabricante.xhtml"/>
 							<p:menuitem value="Modelo Carro" outcome="/modeloCarro/CadastroModeloCarro.xhtml"/>
-							<p:menuitem value="Acessório" />
-							<p:menuitem value="Carro" />
+							<p:menuitem value="Acessório" outcome="/acessorio/CadastroAcessorio.xhtml"/>
+							<p:menuitem value="Carro" outcome="/carro/CadastroCarro.xhtml"/>
 							<p:separator/>
-							<p:menuitem value="Funcionário" />
-							<p:menuitem value="Motorista" />
+							<p:menuitem value="Funcionário" outcome="/funcionario/CadastroFuncionario.xhtml"/>
+							<p:menuitem value="Motorista" outcome="/motorista/CadastroMotorista.xhtml"/>
 						</p:submenu>
-						<p:menuitem value="Novo Aluguel" />
+						<p:menuitem value="Novo Aluguel" outcome="/aluguel/NovoAluguel.xhtml"/>
 						<p:submenu label="Relatórios">
 							<p:menuitem value="Receita por carro" />
 						</p:submenu>

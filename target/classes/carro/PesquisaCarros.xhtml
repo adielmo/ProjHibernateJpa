@@ -35,7 +35,13 @@
 		    			<h:outputText value="#{carro.valorDiaria}" />
 		    		</p:column>
 		    		<p:column headerText="Acessórios" style="width: 100px; text-align: center">
+<<<<<<< HEAD
 		    			<p:commandButton icon="ui-icon-extlink" title="Acessórios" >
+=======
+		    			<p:commandButton icon="ui-icon-extlink" title="Acessórios" action="#{pesquisaCarroBean.buscarCarroComAcessorios}"
+		    					process="@this" oncomplete="mostraAcessorios.show()" update=":frmPesquisa:mostraAcessoriosDialog">
+		    				<f:setPropertyActionListener target="#{pesquisaCarroBean.carroSelecionado}" value="#{carro}" />
+>>>>>>> master
 		    			</p:commandButton>
 		    		</p:column>
 		    		<p:column style="width: 100px; text-align: center">
@@ -57,6 +63,17 @@
 	        			onclick="confirmacaoExclusao.hide()" action="#{pesquisaCarroBean.excluir}" />
 	    	</p:confirmDialog>
 	    	
+<<<<<<< HEAD
+=======
+	    	<p:dialog id="mostraAcessoriosDialog" header="Acessórios" widgetVar="mostraAcessorios" modal="true">
+    			<p:dataList value="#{pesquisaCarroBean.carroSelecionado.acessorios}" var="acessorio" itemType="disc"
+    					rendered="#{not empty pesquisaCarroBean.carroSelecionado.acessorios}">
+    				#{acessorio.descricao}
+    			</p:dataList>
+    			<h:outputText value="Nenhum acessório" rendered="#{empty pesquisaCarroBean.carroSelecionado.acessorios}"/>
+			</p:dialog>
+	    	
+>>>>>>> master
 	    </h:form>
     </ui:define>
 </ui:composition>
