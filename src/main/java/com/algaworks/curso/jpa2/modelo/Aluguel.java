@@ -5,12 +5,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,6 +42,10 @@ public class Aluguel {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDevolucao;
+	
+	@OneToMany
+	@Column(name="codigo_motorista")
+	private Motorista motorista;
 	
 
 	public Long getCodigo() {
@@ -97,6 +103,15 @@ public class Aluguel {
 
 	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
+	}
+	
+
+	public Motorista getMotorista() {
+		return motorista;
+	}
+
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
 	}
 
 	@Override
