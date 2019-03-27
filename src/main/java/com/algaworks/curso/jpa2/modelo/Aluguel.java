@@ -1,8 +1,11 @@
 package com.algaworks.curso.jpa2.modelo;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +30,16 @@ public class Aluguel {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="codigo_apolice_seguro")
 	private ApoliceSeguro apoliceSeguro;
+	
+	private Calendar dataPedido;
+	private Date dataEntrega;
+	
+
+	private Date dataDevolucao;
+	
+	@ManyToOne
+	@Column(name="codigo_motorista")
+	private Motorista motorista;
 	
 
 	public Long getCodigo() {
