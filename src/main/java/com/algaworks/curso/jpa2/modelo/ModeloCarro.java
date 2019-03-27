@@ -1,6 +1,8 @@
 package com.algaworks.curso.jpa2.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +21,9 @@ public class ModeloCarro {
 	@ManyToOne
 	@JoinColumn(name="codigo_fabricante")
 	private Fabricante fabricante;
-	//MuitosPUm
+	
+	@Enumerated(EnumType.STRING)
+	private Categoria categoria;
 
 	public Long getCodigo() {
 		return codigo;
