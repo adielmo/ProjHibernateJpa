@@ -15,43 +15,44 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TIPO_PESSOA", discriminatorType=DiscriminatorType.STRING)
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="TIPO_PESSOA", discriminatorType=DiscriminatorType.INTEGER)
 public abstract class Pessoa {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	private String nome;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_nascimento")
 	private Date dataNascimento;
-	
 	private String cpf;
-	
-	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getdataNascimento() {
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="data_nascimento")
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setdataNascimento(Date dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -59,18 +60,14 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+	@Enumerated(EnumType.STRING)
 	public Sexo getSexo() {
 		return sexo;
 	}
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -78,6 +75,7 @@ public abstract class Pessoa {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -94,6 +92,5 @@ public abstract class Pessoa {
 			return false;
 		return true;
 	}
-	
 	
 }

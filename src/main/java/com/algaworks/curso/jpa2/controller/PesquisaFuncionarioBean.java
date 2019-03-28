@@ -23,11 +23,11 @@ public class PesquisaFuncionarioBean implements Serializable {
 	@Inject
 	FuncionarioDAO funcionarioDAO;
 	
-	private List funcionarios = new ArrayList<>();
+	private List<Funcionario> funcionarios = new ArrayList<>();
 	
 	private Funcionario funcionarioSelecionado;
 	
-	public List getFuncionarios() {
+	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 	

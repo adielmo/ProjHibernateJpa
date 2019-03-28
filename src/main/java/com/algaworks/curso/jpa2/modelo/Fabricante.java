@@ -8,33 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Fabricante implements Serializable{
+public class Fabricante {
 
-	private static final long serialVersionUID = 1L;
+	private Long codigo;
+	private String nome;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codigo;
-	
-		
-	private String nome;
-	
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,7 +36,7 @@ public class Fabricante implements Serializable{
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -59,7 +53,5 @@ public class Fabricante implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 
 }
