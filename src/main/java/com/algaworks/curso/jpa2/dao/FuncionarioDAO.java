@@ -26,6 +26,7 @@ public class FuncionarioDAO implements Serializable {
 		manager.merge(funcionario);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Funcionario> buscarTodos() {
 		return manager.createQuery("from Funcionario").getResultList();
 	}

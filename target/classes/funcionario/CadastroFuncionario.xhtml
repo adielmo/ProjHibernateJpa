@@ -47,6 +47,13 @@ pattern="dd/MM/yyyy"/>
 	    		<p:outputLabel value="CPF" for="cpf"/>
 	    		<p:inputText id="cpf" size="20" maxlength="20" value="#{cadastroFuncionarioBean.funcionario.cpf}"/>
 	    		
+	    		<p:outputLabel value="Sexo" for="sexo"/>
+	    		<p:selectOneMenu id="sexo" value="#{cadastroFuncionarioBean.funcionario.sexo}">
+	    			<f:selectItem itemLabel="Selecione o sexo" />
+	    			<f:selectItems value="#{cadastroFuncionarioBean.sexos}" var="sexo" 
+						itemLabel="#{sexo.descricao}" itemValue="#{sexo}"/>
+	    		</p:selectOneMenu>
+	    		
 	    		<p:outputLabel value="Matrícula" for="matricula"/>
 	    		<p:inputText id="matricula" size="20" maxlength="20" value="#{cadastroFuncionarioBean.funcionario.matricula}"/>
 	    	</p:panelGrid>

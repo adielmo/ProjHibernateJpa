@@ -16,8 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Carro {
+public class Carro implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Long codigo;
 	private String placa;
 	private String cor;

@@ -18,18 +18,25 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="TIPO_PESSOA", discriminatorType=DiscriminatorType.INTEGER)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TIPO_PESSOA", discriminatorType=DiscriminatorType.STRING)
 public abstract class Pessoa {
 
-	private Long codigo;
-	private String nome;
-	private Date dataNascimento;
-	private String cpf;
-	private Sexo sexo;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long codigo;
+	private String nome;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="data_nascimento")
+	private Date dataNascimento;
+	
+	private String cpf;
+	
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
+	
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -44,8 +51,7 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_nascimento")
+	
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
@@ -60,7 +66,7 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	@Enumerated(EnumType.STRING)
+	
 	public Sexo getSexo() {
 		return sexo;
 	}
