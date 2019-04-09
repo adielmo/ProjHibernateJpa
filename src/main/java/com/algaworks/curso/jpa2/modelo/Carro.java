@@ -20,17 +20,27 @@ public class Carro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	private String placa;
 	private String cor;
 	private String chassi;
 	private BigDecimal valorDiaria;
-	private ModeloCarro modelo;
-	private List<Acessorio> acessorios;
-	private List<Aluguel> alugueis;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@ManyToOne
+	@JoinColumn(name="codigo_modelo")
+	private ModeloCarro modelo;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="carro_acessorio"
+				, joinColumns=@JoinColumn(name="codigo_carro")
+				, inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
+	private List<Acessorio> acessorios;
+	
+	@OneToMany(mappedBy="carro")
+	private List<Aluguel> alugueis;
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -66,8 +76,7 @@ public class Carro implements Serializable{
 		this.valorDiaria = valorDiaria;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="codigo_modelo")
+	
 	public ModeloCarro getModelo() {
 		return modelo;
 	}
@@ -75,10 +84,7 @@ public class Carro implements Serializable{
 		this.modelo = modelo;
 	}
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="carro_acessorio"
-				, joinColumns=@JoinColumn(name="codigo_carro")
-				, inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
+	
 	public List<Acessorio> getAcessorios() {
 		return acessorios;
 	}
@@ -86,7 +92,7 @@ public class Carro implements Serializable{
 		this.acessorios = acessorios;
 	}
 	
-	@OneToMany(mappedBy="carro")
+	
 	public List<Aluguel> getAlugueis() {
 		return alugueis;
 	}

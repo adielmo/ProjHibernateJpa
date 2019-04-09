@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import com.algaworks.curso.jpa2.dao.AcessorioDAO;
 import com.algaworks.curso.jpa2.modelo.Acessorio;
+import com.algaworks.curso.jpa2.modelo.Carro;
 import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class CadastroAcessorioService implements Serializable {
@@ -24,5 +25,7 @@ public class CadastroAcessorioService implements Serializable {
 		
 		this.acessorioDAO.salvar(acessorio);
 	}
+	
+
 
 }
