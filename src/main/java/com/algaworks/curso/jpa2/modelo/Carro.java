@@ -30,7 +30,7 @@ public class Carro implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="codigo_modelo")
-	private ModeloCarro modelo;
+	private ModeloCarro modelo;	
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 <<<<<<< HEAD

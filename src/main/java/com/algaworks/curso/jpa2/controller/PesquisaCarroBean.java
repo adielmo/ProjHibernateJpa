@@ -1,5 +1,6 @@
 package com.algaworks.curso.jpa2.controller;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
