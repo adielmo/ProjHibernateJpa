@@ -61,4 +61,3 @@ public class CadastroMotoristaBean implements Serializable {
 	}
 
 }
-
