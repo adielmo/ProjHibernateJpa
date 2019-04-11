@@ -12,15 +12,14 @@ import javax.persistence.Table;
 @Table(name="apolice_seguro")
 public class ApoliceSeguro {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	private BigDecimal valorFranquia;
 	private Boolean protecaoTerceiro;
 	private Boolean protecaoCausasNaturais;
 	private Boolean protecaoRoubo;
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}

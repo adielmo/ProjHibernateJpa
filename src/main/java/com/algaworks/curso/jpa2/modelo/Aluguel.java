@@ -5,14 +5,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,18 +19,18 @@ import javax.persistence.TemporalType;
 public class Aluguel {
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	
 	private BigDecimal valorTotal;
-	
+
 	@ManyToOne
-	@JoinColumn(name="codigo_carro")
+	@JoinColumn(name = "codigo_carro")
 	private Carro carro;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="codigo_apolice_seguro")
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigo_apolice_seguro")
 	private ApoliceSeguro apoliceSeguro;
+<<<<<<< HEAD
 	
 <<<<<<< HEAD
 	private Calendar dataPedido;
@@ -43,20 +41,28 @@ public class Aluguel {
 	
 	@ManyToOne
 =======
+=======
+
+>>>>>>> master
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPedido;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataEntrega;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDevolucao;
+<<<<<<< HEAD
 	
 	@OneToMany
 >>>>>>> master
 	@Column(name="codigo_motorista")
+=======
+
+	@ManyToOne
+	@JoinColumn(name = "codigo_motorista")
+>>>>>>> master
 	private Motorista motorista;
-	
 
 	public Long getCodigo() {
 		return codigo;
@@ -74,14 +80,6 @@ public class Aluguel {
 		this.valorTotal = valorTotal;
 	}
 
-	public Carro getCarro() {
-		return carro;
-	}
-
-	public void setCarro(Carro carro) {
-		this.carro = carro;
-	}
-	
 	public ApoliceSeguro getApoliceSeguro() {
 		return apoliceSeguro;
 	}
@@ -89,8 +87,15 @@ public class Aluguel {
 	public void setApoliceSeguro(ApoliceSeguro apoliceSeguro) {
 		this.apoliceSeguro = apoliceSeguro;
 	}
-	
-	
+
+	public Carro getCarro() {
+		return carro;
+	}
+
+	public void setCarro(Carro carro) {
+		this.carro = carro;
+	}
+
 	public Calendar getDataPedido() {
 		return dataPedido;
 	}
@@ -114,7 +119,6 @@ public class Aluguel {
 	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
-	
 
 	public Motorista getMotorista() {
 		return motorista;
@@ -128,7 +132,7 @@ public class Aluguel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((carro == null) ? 0 : carro.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -141,13 +145,12 @@ public class Aluguel {
 		if (getClass() != obj.getClass())
 			return false;
 		Aluguel other = (Aluguel) obj;
-		if (carro == null) {
-			if (other.carro != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!carro.equals(other.carro))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}
-	
-	
+
 }

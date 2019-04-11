@@ -9,22 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
+//teste
 @Entity
 public class ModeloCarro {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private Long codigo;
-	
 	private String descricao;
-	
-	@ManyToOne
-	@JoinColumn(name="codigo_fabricante")
 	private Fabricante fabricante;
-	
-	@Enumerated(EnumType.STRING)
 	private Categoria categoria;
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -39,7 +35,8 @@ public class ModeloCarro {
 		this.descricao = descricao;
 	}
 
-	
+	@ManyToOne
+	@JoinColumn(name="codigo_fabricante")
 	public Fabricante getFabricante() {
 		return fabricante;
 	}
@@ -47,7 +44,8 @@ public class ModeloCarro {
 		this.fabricante = fabricante;
 	}
 	
-		public Categoria getCategoria() {
+	@Enumerated(EnumType.STRING)
+	public Categoria getCategoria() {
 		return categoria;
 	}
 	public void setCategoria(Categoria categoria) {

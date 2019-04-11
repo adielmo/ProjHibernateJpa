@@ -23,20 +23,17 @@ public class Carro implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
-	
 	private String placa;
-	
-	private String chassi;
-	
 	private String cor;
-	
+	private String chassi;
 	private BigDecimal valorDiaria;
 	
 	@ManyToOne
-	@JoinColumn(name="codigo_modeloCarro")
+	@JoinColumn(name="codigo_modelo")
 	private ModeloCarro modelo;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
+<<<<<<< HEAD
 	@JoinTable(name="carro_acessorio", 
 	   joinColumns=@JoinColumn(name="codigo_carro"),
 	   inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
@@ -45,6 +42,12 @@ public class Carro implements Serializable{
 =======
 	List<Acessorio> acessorios;
 >>>>>>> master
+=======
+	@JoinTable(name="carro_acessorio"
+				, joinColumns=@JoinColumn(name="codigo_carro")
+				, inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
+	private List<Acessorio> acessorios;
+>>>>>>> master
 	
 	@OneToMany(mappedBy="carro")
 	private List<Aluguel> alugueis;
@@ -52,55 +55,50 @@ public class Carro implements Serializable{
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
+	
 	public String getPlaca() {
 		return placa;
 	}
-
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-
-	public String getChassi() {
-		return chassi;
-	}
-
-	public void setChassi(String chassi) {
-		this.chassi = chassi;
-	}
-
+	
 	public String getCor() {
 		return cor;
 	}
-
 	public void setCor(String cor) {
 		this.cor = cor;
 	}
-
+	
+	public String getChassi() {
+		return chassi;
+	}
+	public void setChassi(String chassi) {
+		this.chassi = chassi;
+	}
+	
 	public BigDecimal getValorDiaria() {
 		return valorDiaria;
 	}
-
 	public void setValorDiaria(BigDecimal valorDiaria) {
 		this.valorDiaria = valorDiaria;
 	}
-		
+	
+	
 	public ModeloCarro getModelo() {
 		return modelo;
 	}
-
 	public void setModelo(ModeloCarro modelo) {
 		this.modelo = modelo;
 	}
-
+	
+	
 	public List<Acessorio> getAcessorios() {
 		return acessorios;
 	}
-
 	public void setAcessorios(List<Acessorio> acessorios) {
 		this.acessorios = acessorios;
 	}
@@ -109,11 +107,10 @@ public class Carro implements Serializable{
 	public List<Aluguel> getAlugueis() {
 		return alugueis;
 	}
-
 	public void setAlugueis(List<Aluguel> alugueis) {
 		this.alugueis = alugueis;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -121,7 +118,7 @@ public class Carro implements Serializable{
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -138,8 +135,5 @@ public class Carro implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 
 }

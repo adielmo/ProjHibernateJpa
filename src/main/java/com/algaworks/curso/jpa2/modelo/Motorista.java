@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("MOTORISTA")
-public class Motorista extends Pessoa{
-	
+public class Motorista extends Pessoa {
+
 	private String numeroCNH;
 
 	public String getNumeroCNH() {
@@ -19,8 +19,14 @@ public class Motorista extends Pessoa{
 
 	public void setNumeroCNH(String numeroCNH) {
 		this.numeroCNH = numeroCNH;
+<<<<<<< HEAD
 	}	
 	
 	
 >>>>>>> master
 }
+=======
+	}
+
+}
+>>>>>>> master

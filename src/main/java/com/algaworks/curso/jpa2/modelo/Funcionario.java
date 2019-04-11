@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("FUNCIONARIO")
-public class Funcionario extends Pessoa{
-	
+public class Funcionario extends Pessoa {
+
 	private String matricula;
 
 	public String getMatricula() {
@@ -16,9 +16,5 @@ public class Funcionario extends Pessoa{
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-	
-	
-	
-	
 
 }
